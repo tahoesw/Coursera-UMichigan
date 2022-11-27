@@ -1,0 +1,32 @@
+One more common pattern with lists, besides accumulation, is to step through a pair of lists (or several
+ lists), doing something with all of the first items, then something with all of the second items, and
+ so on. For example, given two lists of numbers, you might like to add them up pairwise, taking [3, 4, 5]
+ and [1, 2, 3] to yield [4, 6, 8].
+
+One way to do that with a for loop is to loop through the possible index values.
+
+L1 = [3, 4, 5]
+L2 = [1, 2, 3]
+L3 = []
+
+for i in range(len(L1)):
+    L3.append(L1[i] + L2[i])
+
+print(L3)
+
+You have seen this idea previously for iterating through the items in a single list. In many other
+ programming languages that’s really the only way to iterate through the items in a list. In Python,
+ however, we have gotten used to the for loop where the iteration variable is bound successively to
+ each item in the list, rather than just to a number that’s used as a position or index into the list.
+
+Can’t we do something similar with pairs of lists? It turns out we can.
+
+The zip function takes multiple lists and turns them into a list of tuples (actually, an iterator, but
+ they work like lists for most practical purposes), pairing up all the first items as one tuple, all the
+ second items as a tuple, and so on. Then we can iterate through those tuples, and perform some operation
+ on all the first items, all the second items, and so on.
+
+L1 = [3, 4, 5]
+L2 = [1, 2, 3]
+L4 = list(zip(L1, L2))
+print(L4)
