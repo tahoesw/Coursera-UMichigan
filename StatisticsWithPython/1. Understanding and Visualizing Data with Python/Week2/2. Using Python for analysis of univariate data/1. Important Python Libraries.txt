@@ -1,0 +1,214 @@
+Hi, and welcome back to another Python
+tutorial in the Statistics with Python course. I'm Jack Schaffer, and today,
+we're going to dive deeper into Python libraries, such as NumPy and its array
+objects, SciPy in the statistical functions as well as Matplotlib and
+Seaborn for its data visualizations. Let's get into it. One thing I do want to note is that
+this tutorial will provide insights into the basic of these libraries. But I do recommend digging into the
+documentation that is available online and additional resources
+provided within this course. However this tutorial should
+give you a basic overview and enable you to continue with
+these libraries going forward. So to start, we'll be discussing NumPy,
+which is a fundamental package for scientific computing with Python. Some of the few features that it
+contains is a powerful and dimensional array object, which is what we'll be
+primarily focusing on in this tutorial. Now, what is a NumPy array? A NumPy array is a grid of values,
+all of the same type, and is indexed by a tuple of
+nonnegative integers. The number of dimensions
+is the rank of the array. The shape of the array is the tuple of
+integers giving the size of the array along each dimension. And don't worry, I know it's a lot, but we'll be discussing each of those few
+features in further detail going forward. So to start, I'm going to go ahead and
+create a basic NumPy array object. And on the screen you'll see here that you
+can create a NumPy array using the list object that is a basic
+data type in Python. And what I'll do here is I'll create
+a one-dimensional array with 3 objects and name it a. Now just to show you that this is
+definitely a NumPy array type, we'll use the type function,
+and we'll print the output. First let's go ahead and run import numpy
+as np and then we'll create this object. As you can see the output numpy.ndarray. Now one of the nice features of NumPy is that you can also see the shape
+of the array that you've created. So let's go ahead and print that as well. np.shape, enter (a), and we can see that is a one-dimensional
+object with 3 values. Now one thing I do want to also
+go into detail is we have created a one-dimensional array here. But how can we go further
+in more dimensions? So I'll just make a basic
+another NumPy array object. And let's just do a 2 by 2 right here, and what you're going to want to do is
+you're actually going to nest your list. So, as you can see here,
+I've created 1 outer bracket and then 2 inner brackets and
+those will specify the dimensions here. So, if I wanted to create a 2 by 2
+object with the values of 1, 2, 3 and 4. It would look something like this,
+now let's print that out. And you'll see we now have
+a two-dimensional NumPy array object. Now if you're not convinced yet,
+we'll print out the shape again. And don't forget we have to use the dot
+function to access the NumPy library functions. And we can see that the shape of
+the object is 2 rows and 2 columns. One thing I also want to include
+is how do we access these values. So if I wanted to access
+let's say in row 2 I wanted to access the first value which
+would be 3 right here at the output. You would index, specify in the row first,
+which in our case would be 1 because Python indexes
+from starting with 0 for position 1. So it'd be 1, 0 and if we did this
+correctly it should output 3, and it does. So this means that we did index correctly. Now, one of the additional
+functionalities of NumPy in arrays is that you can create matrices
+that include all 0s, all 1s. And you can also create a full
+constant array with a specified value. Let's go ahead and try these things out. So if I wanted to create a NumPy
+array of all 0s, you would do this. And the input would just be the dimensions
+that you would want your array to be. So if we go ahead and
+print out this object c, We got a 3 by 2 array with all 0s. Now let's go ahead and
+create o1sne with all ones. It'll be the same syntax,
+except we'll just use the 1s function. And we'll do a 3 by 2 again as well,
+and print this out. And that's correct, that's what we do see. So now I'll show you how you create
+a constant array with a specified value. And you do this by using the np full
+function, which takes 2 inputs. The first will be your dimensions so
+we'll do a 3 by 3 array. And then we also want to say 9
+as our values for each position. And if we go ahead and
+run that, print it out. As you can see, we have a 3 by
+3 array with all the 9 values. Now lastly, let's go over what
+a random array would look like. And this is called by np.random.random. And you specify your dimensions,
+3 by 3, and we'll print it out. And we have 3 by 3 matrix
+all with random values. Now, on this next section,
+I'm going to go over array indexing and how to access individual values or
+a selection of values. To start we'll create our base array, so I'm just going to make
+a random 3 by 4 array here. So we'll do np.array, Specify let's do 1, 2, 3, 4. 5, 6, 7, 8, 9, 10, 11, 12. So here we have a 3 by 4 array,
+we go ahead and print that out. 3 by 4, 3 rows, 4 columns. Now, how do we go about indexing and
+splicing this array? We can do that with the similar indexing
+format that we saw in data management, where we'll first start with
+the rows that we would like. And so, we'll do position 0 and
+1 and then, our range, 2, specifies that we want to end that 2. So, we'll only take the first 2 rows. And then we'll do our columns. And we'll start at position 2, and
+end at 3, which means we want position 1, which is actually column 2 and column 3. And then position 4 is our endpoint so
+we do not access it. So if we want to go now and print out
+our new value, of h, here we are. You'll see that now we have 2 and
+3 and 6 and 7, which is this middle
+part of our array here. Now one interesting thing about
+accessing and slicing NumPy arrays is that if you were to slice an array and
+set it as a new value. For example, I'll do that here. Let's actually just
+reinitialize our h array. And we'll create a view called i,
+and slice it like we did above. So we'll take the values 2, 3, 6, and 7. And let's go ahead and print out both. Like so, Okay, so we have our h,
+and we have our slice i. Now it's interesting,
+if we were to modify our slice i, so if we wanted to index the value 2,
+it would be 0, 0. And we set it equal to, let's say, 500. Now how does that affect
+our original array h? Now you can see that we've actually
+modified our original array h just by changing the value of our view i. And this is something to keep in mind
+when you're using the same array and utilizing another variable to access it. Now let's get into data types and arrays. There are two different
+data types that arrays use, because they're primarily numerical based,
+which is an integer and a float type. And just to showcase the difference here, which I'm sure you're already fairly
+familiar with, but I'll do it again. We'll create a one dimensional
+array with two values, and we'll just go ahead and
+print the type. And we'll call it j.dtype
+which is different from the type function
+that we have used above. If I can find it here. Right, as we can find it here,
+the type function, that actually specifies
+the numpy array object. Now with the dtype function that we're
+using will do, is it will give us the types of actual values within
+the array which is extremely useful. So as you can see we've actually
+created an integer type array here. Now if we wanted to specify a float
+type which uses decimal places, we could just do something
+along the lines of 1.0 and 2.0. Print the type, dtype, and
+here you see it's a float object. Now, one thing that I'd like to touch in
+is how you can also force data types. So, let's say for example,
+you wanted to create an array, Just like the one above
+where we use decimal points. We can force it to be
+an integer data type, and we do this by specifying a dtype
+within our function, dtype = np.int64. Now if we print this value, dtype l.dtype, Just a typo here. And then also a comment between,
+of course. Despite having the decimal points within
+our initialization of this array, We return an int data type because
+we specified it within our function. Now the last section that we're going to
+discuss is using array math functions with the NumPy library. Okay, and as mentioned before,
+the NumPy library is extremely useful for mathematics, for example linear algebra. The summation, the multiplication,
+division of matrices, and dot products for example, are two great
+functionalities of the NumPy library. However, we're just going to
+go over some basic arithmetic, summation of arrays,
+division, multiplication, and square roots, and how the NumPy library
+takes care of these operations. So to start, let's go again and
+create two base arrays that we'll use, For our functions here. So we'll just create a, Two by two and than I'll also force the data type to equal a float object, so np.float64. And we'll actually just going to
+go ahead here and copy and paste. I'm going to do 5, 6, 7, 8, just for some variety and name that y. So, what we're going to do here is we're
+going to print out the summation of x + y. See I made an error here, where I didn't
+specify the array within a list and if we fix that,
+it should work, and it does. So you can sum these objects, you can subtract these objects, you can also multiply these objects,
+divide these objects. And in fact you can also
+take the square root. So let's do np.sqrt of x. Run all of these. We can see the summation,
+the subtraction, the multiplication, division, and also the square root of x. Additionally NumPy includes
+some descriptive statistics. For example, we can use the sum
+function or mean function and a numerous amount of others
+that NumPy provides, and I do recommend looking at
+the documentation for all of these. But let's just quickly run through
+what a summation might look like. So if we do np.sum and we do x,
+it should get ten, and what this does here is it actually takes every single
+value within the array and sums it up. Now we can actually slice this
+by doing an axis parameter and specifying if we want to do, just sum
+up the rows or the individual columns. And the array Boolean says,
+well, I don't want to specify rows or columns,
+so if we do 0 and 1 here. Oops, let's do it in different cells here. So if we just do by column, we get, 1 plus 3, which is 4, and
+2 plus 4, which is 6. And then if we do it here,
+we get 1 plus 2, and 3 plus 4, which is 7. All right, and
+that's going to wrap it up for NumPy. And now let's get into the SciPy library. Now as we discussed NumPy
+provides a high performance, multidimensional array object,
+and SciPy builds upon this. It utilizes and provides a large number of functions
+that operate on the NumPy arrays, and is useful for different types of
+scientific and engineering applications. For this course we'll primarily be
+using the SciPy.stats sub-library. Within the .stats sub-library,
+we see functions for continuous and discreet distributions,
+descriptive statistics, and also statistical test such as T-test. Now let's get into some of these uses. First, we'll import these libraries and
+one thing that I do want to include is the generation of random variables
+which is extremely useful and something that you'll see quite
+commonly throughout this course. So let's go ahead and
+call the stats library. Use the dot operator and call normal rvs, which means we're going to create normal
+random variables and we'll specify a size, and what that does is it states we
+want ten normal random variables. So we go ahead and print that, and you'll
+see we have ten normal random variables. Now let's kind of get crazy,
+let's do a thousand and see what we get. Now, that's a lot of numbers, but
+it just goes to show how extensive this library is and how quick it can
+generate a bunch of random numbers that follow a normal distribution and
+various other distributions. And now building off of the normal,
+random variables, I want to give you a quick example of
+what a probability density function and a cumulative density function looks like. I know you may not know exactly
+what these terms mean, but it will definitely be explained
+further on in the course. But this will help you understand further
+what the sci pi library is capable of, and it will give you a lot of insight
+as to how you'll use it in the future. So let's go ahead and
+create this visualization. The probability density
+function is specified, or actually visualized by the blue line here. And the cumulative density function
+is showcased by the red dotted line. And essentially what this is is if you
+were to input a value into your normal distribution, let's say for
+example we input 2. This means that the cumulative
+density function would output a value 1 meaning that this
+reaches a value of 100%. So I know that might be
+a little bit complex but I assure you that going further in
+the course it'll make a lot more sense. But if we're to use a function
+in the sci pi stats library called norm CDF, we'll actually
+be able to compute the CDF and return the probability specified for
+that specific value. And I'll just go ahead and do that right
+now, called the stats.norm.cdf and the input for this function is
+actually an np.array object. And what we can do here is
+create a one dimensional object. And what we'll do is,
+let's just for convenience sake, let's use some of the values
+located here in the x axis. And let's go ahead and use -1.5, -.5,0,1,1.5,2. And let's just throw a 6 in there. As you can see, we actually returned
+the probabilities calculated from the cumulative density function. And just to kind of give you some context. For example, where we put the 0,
+we outputted 0.5. And this actually aligns with
+the dashed line here on our graph. 0 at the x-axis, and 0.5 at the y-axis. So it's extremely useful and very powerful
+tool to use when you're calculating the cumulative density function or even the probability density
+function of different distributions. And you'll definitely be using
+this later on in the course. Now the last section that
+we'll be going over for the SciPy.stats library is its
+descriptive statics functions. So these things include things
+along the lines of min and max, mean, and just kind of summary
+statistics along those lines. And I'm just kind of going to
+give you a quick overview of what some of those things look like. And to start, we're actually
+going to generate a random seed. And if you're not familiar with what
+this is, it essentially sets a seed for your environment that allows you
+to create reproducible analysis. So if we're to do something like
+1,2,3,4 as our random seed and then generate random variables
+with the STATS.t.rvs function. And, just to specify,
+we did use norms earlier. We're just using a t distribution rather
+than a norm distribution this time. And what we can do here, we can create
+a lot of random variables here. Let's do a 1,000 and set it as value x. An then what we'll do, is we'll use some
+of these descriptive statistics functions within the stats library. So let's go ahead and print x.min, x.max, print x.min, and lastly, we're going to call
+it the stats.describe function. Which will give us not only just one
+summary statistic, but a couple, you'll see when it gets outputted here. Okay, let's run this. As you can see, our minimum is
+-3.7 of our random variables. Our max is 5.4,
+our mean is extremely small, it's 0.03. And interestingly enough, it's kind of
+right in the middle between our two values, and that might have
+something to do with the T distribution. In fact, it does. And as you can see from our describe, we
+actually get nobs, which is just a count of the amount of unique values,
+which we saw above is 1,000. We got a min. Our max value. And we also get the mean
+as well as the variance. And we get certain other
+things like skewness and. Now that is going to wrap it up for
+the SciPy.stats library. Later in the course we're going to
+discuss distributions and statistical tests such as
+t-tests in further detail. But for now I think this gives you
+a good basis to work off of and kind of get familiar with what these different libraries are going to
+be used for going forward.

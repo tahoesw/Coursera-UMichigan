@@ -1,0 +1,274 @@
+Hello everyone, my name is Mark Kurzeja,
+and I'm currently a masters student in the applied statistics
+program at the University of Michigan. I originally got into statistics because
+I enjoyed predicting stuff with data. And today we're going to be talking about
+tables, histograms, and box plots for exploratory data analysis. Let's get started. Today we are going to be talking
+about visualizing data in Python and about exploratory data analysis using
+tables, histograms, box plots, and other grouping methods
+with the Seaborn package. Whenever we're working
+with a new data set, one of the most useful things to do
+is to begin visualizing the data. We often do this with tables, histograms,
+and box plots as a means of trying to get our first impressions of the data and
+a general shape of the data itself. We often try to plot things in order
+to visualize patterns that we may not see in numbers. And oftentimes, looking at the tables of
+data will give us good summary statistics that we can use to ask more
+interesting questions. Today we're going to be working
+with two packages in particular. The first package is Seaborn which is
+a plotting package available in Python. And the second is matplotlib.pyplot. And this is just going to be so that we
+can show our plots whenever we're ready. Today we're going to be working with
+the tips data set within Seaborn. The tips data set is a default data set
+within Seaborn that allows us to analyze the size of the tip according to different
+factors such as someone's gender, the day of the week, the total bill size, or any
+other factor that we maybe interested in. The tips data set is located and we loaded it into python using
+this SNS.load data set command. And we're going to begin looking at tables
+and other types of plots to try to get a feel for what may impact the size
+of someone's tip at dinner, and also why someone may leave a bigger tip or a smaller tip correlated
+with certain factors. One thing that I love to do before I
+start doing data analysis in Python, is I like to take a look at what the first
+few rows of the data are just so we can kind of get a feel for what type
+of data we're going to be analyzing. So in order to do that,
+I have ("tips") data. I'm going to load in this data. Then in order to view the first
+few rows we do tipsdata.head. I'll run this code. And here we can see these are the first
+few rows of the tips data set. We start out, we have a total bill. So what this data set is describing is
+it's describing the total tip that you would give at the end of, say,
+a meal for dinner, lunch, based on what type of sex you have, based
+on whether you're a smoker, based on day, the size of the party,
+as well as the total bill size. And then this is the tip
+amount that the person left. And today we're going to be inspecting
+how different attributes such as whether someone's a smoker or whether large
+party sizes impact the size of the tip. After we've seen the first few rows of
+the data and try to get a general feel for what the variables that
+we're going to be using are, the next useful thing that I often
+find is to get some summary statistics about the variables in question. So in Python the easiest way to
+do this is if we take tips data, and we're going to use
+the describe command. All this command does is it takes all
+of my quantitative variables, and it's going to print out some summary
+statistics about each one of them. So in each case, we can see that
+we have 244 observations for the total bill size, the tip size,
+and also the size of the party. The total bill had a mean of 19.78, so on average people paid
+a total bill of $19.78. The size of the party, this person ate
+alone, we have a min party size of 1. This person happened to eat in a group,
+so we have a max part in the size of 6. And we can begin looking at the general
+summary statistics of the data to try to get a feel for what the data is
+actually beginning to tell us, right? Some interesting questions would
+be does the size of the party impact the size of the tip. Does the size of the bill impact the size
+of the tip in similar characteristics. And we'll also begin looking
+at qualitative variables such as the day of the week,
+the time that someone eat, and whether someone is a smoker to determine
+if this impact tip size as well. Now that we have the summary statistics, a useful thing to do is to
+begin creating histograms. Whenever we're creating histograms, we're
+going to be using the Seaborn package and we're going to be using
+something called distplot. And so we'll say that we wanted to
+get a histogram of the total bill. We would do sns, which is calling the
+Seaborn package, and we called distplot. The first argument is going to
+be what we're trying to plot. So in this case I'm going
+to be plotting tips_data. And I'm going to be taking the total bill. The second variable is something called
+KDE and we're going to set this to false. And the reason why we do this is because
+we don't want it to display density plot and I'll show what that is in a second. The third thing that we're going to
+want to do is often we want to set a title. So I'll use set_title. And we provide a descriptive title here. It's often good practice to always
+create a title on all of your plots, even if you're exploring, so
+that if you see this data in the future, you know to reference it. And this is the histogram of total bills. So I'm going to run this plot, and
+it looks like we have an error, so let's see what's going on. So if I'm looking through this,
+it seems as if, I have not shown it, so
+this is what I have to do. So what this plot.show does is it says
+take my original plot and show it. And now I can see that I have
+a histogram of the total bill size. You can instantly see a few interesting
+things about this distribution. First off,
+this is a unimodal distribution. So this is the first thing
+that I would grab out of here. And the second thing is that this
+distribution is right skewed, so we can see the tails off to the right
+potentially with some pretty high bills sitting in the right hand
+side of the distribution. So that's pretty useful in order to try
+and discern how big the total tip or the total bill is. Next, I may want to get
+a histogram of the tip size. And so what I do is I'm going to
+take the same code from above. I'm going to use this code, but
+instead now of the total_bill, I'm going to put in tip. And I also need to change the title. In here,
+we can get a histogram of the total tips. So we can see that they may be a few
+outliers on the right hand tail. These people tend to tip a lot. The distribution tends to be unimodal. And this is something that I always
+do whenever I begin looking at data, is to try to get a feel for
+the distribution. As we talked about before,
+what happens if we set this KDE = true? What happens if we didn't include this? So Python, by default in the Seaborn
+package always includes a density plot. And because I often find this
+to be visually distracting, I'll often just set this
+parameter to false. Sometimes it's pretty useful to actually
+plot both of them at the same time, both distributions. I often don't recommend this with data
+sets that are relatively homogeneous since you won't be able to discern which
+data set you're actually looking at. But if we were to take
+both of our plots before, I'm going to plot the total tip and
+I'm going to plot the total bill And I'm going to show the plot Then we can see that the title is
+only taking the second title, so this would be another bug. I'm going to want to delete this
+first set_title, an histogram of both Tip size and Total Bill. Run this one more time. And here we can see
+that the total tip size is far smaller than the total bill size. And so in this way I can compare
+two distributions on the same plot. Histograms give you a general
+shape of the distribution but they don't provide good indications
+of where the center might be. You typically have to eyeball
+these things with histograms. Box plots in contrast often give
+a better description of the center and the range of the data but
+they don't provide things such as shape. In order to create a box plot in Python,
+we're going to use the C-Born package and we're going to use the boxplot
+command in C-Born. So we'll do sns.boxplot,
+and just as before, the first argument is going to
+be what we're trying to plot. So in this case I'm going
+to be using tips_data. The total_bill. And then I'm going to
+want to set a title again. So this would be box
+plot of the total bill. And then as before. I needed to show the plot. Here we can see that the total bill
+appears to have a few outliers in the upper right-hand side of the
+distribution between 50 and 55 roughly, or between 45 and 55, I'm sorry. We can also see that the median
+is approximately 18. If we look back up at our
+summary statistics, I can see that the median of the total
+bill size is 17.79, and so that aligns with the numbers
+that we calculated before. And so often times,
+whenever I'm looking at data, I'll go between the described box to
+try to see what the actual numbers are. And then I'll take a look at the plot and see how they end up
+corresponding with each other. Just as before we're going to
+try to get a general feel for the tips aspect of
+the data using a box plot. So I am going to change this to tips. I think it's actually called tip. Box plot with a tip. And we can see the same thing. We noticed that there was
+a few outliers up near 10 and we can see this in the back spot as well. The median is approximately 3 and
+we can notice too that both the box plot of the total bill and the box
+plot of the tip look relatively similar, even though the histograms
+may look somewhat different. And so this is an indication that
+oftentimes using both the box plot in the histogram together are very useful
+whenever we're doing data analysis. Unlike with histograms box plots
+do plot very well together. And so just as before, I'm going to
+plot both of them on the same axis. We can see that I'm often just copying and
+pasting code. The reason for this is because typically
+whenever we're doing data analysis, we're going to be doing
+a lot of the same thing. Sometimes you may want to automate this,
+but this is more advanced python than
+we're going to teach in this course. So I'm going to create a box plot
+of the total bill and the tips. And I'm going to show the plot. We can see right now that they're
+plotting both on the same axis. And so
+this is something that we don't want. We can get around this with
+windowed plots, but in general, this is something that
+we don't want to do. I'll end up showing in the next section
+how to plot two individual data sets whenever we use that as a group. An interesting thing about this data is
+that we also have qualitative variables to go along with the quantitative variables. And so we want to see the relationship
+between the qualitative variables and the quantitative variables. How smoking, the time of the day, and other day trends may impact the size
+of the tip that someone may give. We can create a box plot faceted by
+these groups, plotting by these groups. By running the box plot command, but this time we're going to put a second
+parameter inside of the function. So if I do sns.boxplot,
+I'm going to specify an x parameter. So x is going to be what
+I'm trying to plot. So in this case it's
+going to be tips_data. Tip, and my y-parameter is going to
+be what I'm going to be grouping by, so I'm going to have tips_data again. And this time I'm going to look at how
+being a smoker may impact the size that someone gives as a tip. And I also did not show the plot,
+as we need to. And so we can see that, in general,
+the two box plots of smokers and non-smokers look relatively similar. We can see that smokers
+had the largest maximum. They were responsible for this outlier. We can also see that the IQR's are roughly
+similar between the two distributions, so smokers and non-smokers, for the tip size. And we can also see that even the fences
+themselves are relatively similar. However, I'm curious if the shape of
+the distribution will actually be the same between smokers and
+non-smokers for tip size. And so what we can do is
+instead of plotting a box plot, we can now plot,
+A histogram of the total results. So I'm going to save this
+into a variable called g. [NOISE] So what I'm doing here, is I'm going to setup up something called a facet grid. And all this is doing is this is just
+going to plot two similar boxes for my smoker and my nonsmoker groups. And then I'm going to need to
+do something called a map. This function is a little
+bit more advanced. But what it allows us to do is it
+allows us to take the histogram feature of plotting, and it allows us to
+set it across both the smoker and non smoker groups at the same time so
+that they're not on the same axis. The first parameter is the function. And the second parameter is going
+to be what I'm trying to plot. So let's run this. We can see now that I have histograms
+of both people who smoke and people who don't smoke for tip size. So you have tip size on the x axis, we have the count of the people
+who are in each group, and then we have smokers up at the top and
+non-smokers down at the bottom. And we can see, once again,
+both distributions are right skewed. Both distributions look roughly similar,
+and we can also see that once again, smokers account for that outlier
+that we saw earlier in the data. We can do the same thing for
+other groups such as time of day. And so what I'm going to do is I'm
+going to do a box plot yet again. And this once again is going to be for the
+tip Then I need to specify a y variable. And my y variable is going to be time. So I'm going to show the plot. We have another error, so
+let's see what's going on. So I'm running a box
+plot on the tip data set. Y is equal to time, but I notice I did
+not specify what the data set was. And so in this case I need
+to go to tips data, time. And this is saying grab the time
+variable from the tips data set, and show the box plot. And now we can see the base
+on the time of the day. It appears as if dinner attributes for larger tips include the outlier
+that we saw earlier. So it was probably a smoker during
+dinner who gave this really large tip. We can also see that the median of tip size based on meal is
+actually pretty different. So we can see that the median tip based
+on lunch is roughly around two and a quarter, and we see the median
+based on dinner is roughly three. This may be because typically dinners
+will have a larger total bill in general. But we can also see that the distribution
+looks to be a little bit heavier on the right tail according to dinner. We're going to assess the shape though,
+using a histogram as before. So I'm going to use that
+generic variable g again, and I'm going to set up a facet grid. And just as before,
+I'm going to use the tips data set. And I'm going to be saying that my row, In this case now is just
+going to be equal to time. And so what this is saying is,
+is this is saying hey, can you please group all
+of my plots by time? I'm going to do this
+g.map command again and all this is doing is just the same hey for
+each group that we created. Can we please just create a histogram? So, I'm going to plot that hist, and
+I'm going to do this on the tips. So once again all this is saying is
+this is saying hey can we please create a grid setup, and then can we map my histogram function for
+each group that I created in this grid. So I'm going to now just run the code. And I can see now some interesting things
+come about from plotting these different groups of these histograms. So both distributions appear to be
+right skewed, so this is interesting. We can also note that there
+was way more observations for dinner than there was for lunch. These bars for dinner are much higher, indicating much more observational counts
+as opposed to these lower bars for lunch. So what this tells me is, typically
+at this restaurant, people are eating a lot more during dinner and typically
+they're leaving bigger tips during dinner. So if I was a waitstaff, I may want to work later shifts
+in order to get bigger tips. Lastly, let's see if
+different days of the week may be indicative of
+different types of trends. Let's say that I'm a wait
+stuff at this restaurant and I want to say hey what's the best day for
+earning tips? And we'll let the data tell us. So in the same case I'm going
+to take the same case before, I'm going to create a box plot. We've seen this quite a bit before where
+we're going to be taking the tip as our x variable, but this time, we're going to
+be varying once again what we group by. And we're going to be grouping
+this time by weather. We need to grab the day of the week
+variable, what's this called? So any time that you need to look for
+a day of the week variable, this is another reason to look
+at the head of the data set. I'm looking for the day variable
+right here, so it's called day. I'm going to be plotting based on the day. So let's go all the way
+down to the bottom. And I'm going to be looking at the day
+group for this particular boxplot. I'm going to show the boxplot. And now we can see that each day of
+the week has its own boxplot for the tip size and total. So let's create a tittle for this guy. Box plot of tips by day of the week. Capitalize this. We can gather some interesting things. So it appears that the largest
+tips are given out and the outliers are given out on Saturday. It appears that the worse day for
+tips is Thursday, because it has the lowest median. It also appears that Sunday maybe the best
+day because it has the highest median. We can use different
+summary statistics though, to figure out what day
+we may want to work. If we wanted the possibility of
+maybe having the largest tip, we may want to work on Saturday because it
+seems like there are quite a few people that tend to eat out during
+Saturday that have larger tips. Similarly, if we want the largest
+tip roughly on average, we can end up using Sunday as our
+day that we're going to work. And that's because this one has
+the highest median of the group. Let's see how the shapes differ
+from each different day. So as before, we're going to create
+our facet grid one last time. We're going to be using the tips data,
+and we're going to be grouping by day. And then we're going to
+map as we did before. And we're going to apply
+this to the tip variable. We got one last there. And we'll see a lot of times
+in exploratory data analysis, sometimes these errors will pop up. Never be scared by them, it just means
+we need to do a little bit of debugging. So let's what we did wrong. So we have the tip data set as before. I need to say that
+the row is equal to day. So row equals day. And this should work. And it's still giving me an error and
+it says, facet grid is now defined. It's because I did not defined facet grid. So what we need to do is, we need to say hey, facet grid is
+actually with in the seaborne package. And now,
+because facet grid is well-defined, we can now end up taking
+a look at the histograms. And we can now see that Thursday
+appears to be a pretty popular day for people dining in. The distribution is right skewed and
+appears to be somewhat unimodal. Friday is very interesting, there's not
+too many people dining in on Friday, and the tips appear to be pretty small. And so in this way I would be very curious
+to see what's actually going on here, this may be something that you may want to
+investigate if you were to look at this data further. We can see that a lot of
+people dine in on Saturday. We notice once again this heavy right
+tail, this possibility for outliers. So if we're looking for
+these people who are giving really, really big tips on a single table,
+we may want to come in on Saturday. And similarly, we can also notice
+that this distribution is unimodal. And then lastly, on Sunday we notice that the patterns
+are not the same as the other few days. We can notice that this distribution
+does not have a really clear shape. It may be partially right skewed, but it's really hard to determine
+from this histogram. We just don't really have enough data or may want to change the size of
+these bins in the future analysis. And we can see that on average, it appears as if Sunday typically has more
+tips than this four to six area range, than some of the other days of
+the week relative to other tip sizes. So, this is how we would go about
+doing a basic data analysis in Python. We're looking at the tips dataset and so other things that we can end up looking
+at pass this or how things like whether there's someone that's a male or
+a female, man pack the size of a tip. Is there any relationship between
+the total bill size and size of the tip? Which we can expect that
+there probably will be. Are there anything such
+as the size of the party? Do larger parties tend to tip better? And all these things we can begin to
+explore using boxplots and histograms. And this is a great way
+to begin looking at data. Thanks for joining me today,
+and I'll see you next time.
