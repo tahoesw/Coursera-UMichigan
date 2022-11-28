@@ -1,0 +1,65 @@
+Okay, we're going to do
+a small intro on unit testing. So I think unit testing is really
+important because it's really the only way you have to check if your code is
+actually doing what you want it to do. We're not going to go really deeply or
+at all into the libraries and packages that Python has available. We're just going to give you really simple
+ways that you can check yourself, and then we'll link out if
+you want to learn more. So I'm going to go ahead and
+just import our NumPy and Pandas, and import the NHanes data. And we can go ahead and just look at
+the data that we have, and really we're going to just kind of splice the data
+a little bit and find the mean of it. So our goal here is to find the mean
+of the first 100 rows of our blood pressure variable when
+our age variable is over 60. So one way that we could do this is
+by calling the Panda's function mean. And we're going to go ahead and look at our data frame such that
+the age is greater than 60, and that we're only looking at the first 100
+rows of our blood pressure variable. So we go ahead and call this,
+we get a totally reasonable number, right. This could absolutely be the mean
+blood pressure for those over 60. But how do we know if it's actually true? How do we know we selected
+exactly what we wanted to select. I mean it didn't turn error,
+so it could be right. So what we're going to do is we're
+going to make a test data frame. So this is going to be a really small
+data frame that you can just look at and calculate the value exactly
+as you would want it to be. And then check if your code actually
+gives you the output you expect. So what I have done here is I
+am creating my test data frame. The first column is just going to be this
+list three and one repeated five times. So we get three fives times and
+then one five times. And my second column is going to
+be just the numbers from 3 to 12. And then I have just made
+the index from 1 to 11. So if we were to look at this and
+said, okay, what's something that's similar
+to what we've tested here? We said we wanted the age over 60
+we're looking at the first 100 rows. So what if I said, okay, well let's
+look at column one when it's over two, and let's look at the range
+from zero to five. So we want the first five rows. So we're going to go ahead and use our
+exact code that we used on the real data. So we're going to do pd.Series.mean, and then I'm testing whether
+the column one is greater than two. So that's going to be in place for
+our age is over 60. And then instead of doing
+range from the first 100 rows, we're looking at the first 5 rows, and
+we're looking at the mean of column 2. So we go ahead and we run this. Or before we run that let's ask ourselves,
+what do we expect? So out of these first five rows of column
+two, the mean should be five, right. It's simple to just look at that and
+say, five is the mean. Well that's not right, we get 4.5. What could have gone wrong? I mean we didn't expect that. And this is what unit testing is about. We've tested our code on something
+simple that we know the answer to, and we've gotten something different. So we know something is wrong, which means we can't trust this
+output that we got on our real data. So the other part of unit
+testing is trying to figure out, well what actually went wrong? So let's just look at what this data
+frame returns without taking the mean. Okay, so that's weird,
+we get this null value. And really,
+we know that the first row has a value. But you can see that the indices
+are different, right. This starts at one whereas this has zero. And what's happening is
+it's returning nothing for this index because there is nothing in it,
+there is no indices that has zero. And that's where the issue
+has really come from in here. Instead of using the location indexer,
+we should have used the iloc. And so if we do this,
+we get the correct answer. We get the first five rows instead
+of all the rows that are labeled for between zero and five where one of
+them's not actually labeled zero. So it kind of just makes one up and
+puts a null in there. So now we know how to correctly
+run this function by changing the .loc to .iloc, and
+we do indeed get five. Now we can go ahead and look at the differences,
+That we get with our real dataset. And you can see that when we use this
+.loc we get all these empty values, which is definitely changing our mean. We should be using the iloc which
+would give us the correct mean. Okay, if we go back and change this to an
+index, this is the sixth index, and change this to the iloc, then we're going to
+go ahead and get a different value. So that's just a brief introduction of how
+you can do really simple unit testing and make sure that you know your code
+is doing what you want it to do. That's it for today.

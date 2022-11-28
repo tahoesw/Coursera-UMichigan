@@ -1,0 +1,92 @@
+Hello, everyone. Today, we're going to be dealing with
+multivariate distributions in Python. Sometimes we can get a lot of
+information about how two or more variables relate if we
+begin plotting them together. Sometimes this information, if we plot
+only one at a time, is not so obvious. And so today we're going to be going
+over how to create multidimensional plots in Python. So the first thing that we're going to
+need is we're going to need to import three packages. The first one is numpy as we usually do. The second one is matplotlib.pyplot for
+plotting, and then seaborn for histograms. Right here I have some code
+that's going to generate in this case some two dimensional data. Don't really worry too much
+about what's going on here. This is the same code that's in
+the multivariate distributions demo. In this code we're just going to kind
+of replicate in order to be able to visualize things side by side. So the first thing that I want to do
+is I first want to setup this code. I'm going to adjust the figure size and
+what we're going to do is, is we're going to take a look at this
+multi-variant normal distribution. You don't need to know what
+this exactly just yet, but just know that we're
+going to get two vectors. The first one is called X, which will
+look like a normal distribution and the second one is called Y which will
+look like a normal distribution. So let's plot those together. The first thing that we're going to do is
+we're going to set up two sub plots so that we can see them next to each other. So this is going to be
+a one by two sub plot. We're going to create the histogram. We're going to set 15 bins
+because we found that this is, given our data size,
+a good way to visualize it. And then I'm going to add a title. So this is going to be the X distribution, this is going to be
+the marginal distribution of X. We're also going to be doing this with Y,
+so we'll do the same thing. We're going to set this
+up in the second plot. We're going to have 15 bins, and then
+we're going to set the title to Y, just so we can see the marginal distribution of Y,
+and then lastly we need to show the plot. We going to run this bit of code. What we can see here is that this little
+bit of code here has generated two vectors. One X and one Y, and
+they both look approximately normal. And so we can see here,
+this is the marginal distribution of X and this is the marginal distribution of Y. And we can see that both of them
+don't look like they relate to each other too much. This one is centered at 15. This one is centered at five. We've set both the variances
+to be equal to one. Which means that both of the standard
+deviations are equal to 1. So we can see that they
+both have the same spread. If we were to plot these normally, we would not discern too much
+association between the two. But what I want to do is I want to look at
+the two data points whenever we plot them next to each other. So the first thing that we need to do is
+we need to kind of get an idea of how big we're going to make the figure. So we're going to use this with
+the plot figure command, and we're going to make the fig
+size equal to a 10 by 10 frame. And all this is doing is it's saying to
+Python please make my figure 10 by 10. Next, we're going to do
+the same subplots we did above. This is going to be a two by two plot. I'm going to put this one in
+the upper left-hand corner. I'm sorry,
+this will be in the upper right corner. So the scatter command is
+going to plot them together. And then lastly, we just need
+to create a title for this guy. So this is going to be the joint
+distribution of X and Y. Now we're going to plot the two
+marginal distributions. So let's plot the marginal
+distribution of X. Once again adding a title. And then we'll to the same thing for Y. Except I'm going to change the orientation
+of the histogram to horizontal, and we'll see what this is
+going to do in one second. And then we just need to show our plot at the end. So let's run this bit of code. We can see that we end up getting
+an error, and let's see what it's saying. So it says horizontal is not recognized,
+so I probably misspelled horizontal here. Rerun it. Yep, and I ended up misspelling it,
+so now it runs perfectly. We can see right now that this
+plot is not showing up the way that I would like it to. And that is because this
+needs to be a three. And so all I did here was I ended up
+seeing, I actually need this to be a one. So, all I'm trying to do is I'm trying
+to lay out the plots correctly. So if we plot the joint distribution of X
+and Y, we can see that they actually have a perfect linear relationship,
+we can see this here. And so what I do is I plot the first
+value of X and the first value of Y, and let's say it's this point right here. Then I plot the second value of X and
+the second value of Y, and let's say it's this point here. And if we keep doing that, we can see that
+they plot exactly in a straight line. On the left, into the bottom,
+are the marginal distributions of X and Y. And so
+we can see that this one is mislabeled. I'm just going to relabel
+this one really quickly. This is the marginal distribution of Y. So what happens is, is I'm looking at
+this code and I can see that right here, this marginal distribution of Y is
+exactly equal to this graph up here. They're the exact same graph. And similarly, this marginal distribution
+of X looks exactly like this one, and it should because
+they're the same data. But whenever we plot the two together,
+whenever I take all these points and I squish them onto this line,
+whenever I take all of these points and I squish them on this line and I plot them together, you can see I'm
+going to get a perfect association. And so sometimes even though the marginal
+distributions look normal, they have mean 15, mean 5, the same standard
+deviation but that doesn't really matter. Even though this appears as if these two
+have no relationship, sometimes if we plot them together, we can notice that they
+have a very, very strong relationships. In this type of data, allows us to see
+that sometimes plotting things together actually gives us more information,
+than if we plot two graphs separately. A little bit later in the course, we will
+be seeing how this is going to relate whenever we deal with different types
+of data sets in the real world, but as for right now,
+we can also play with this data. And we can see that if I control
+this little r parameter up here, I can also get the same data
+just now with a negative slope. So I'm going to run it, and you can
+see that I get much the same graphs. I'm going to run this piece of code. And now you can see I get a perfectly
+negative slope line if I set r equal to negative one on that top code. So we can see that even though these
+appear as if they have no relationship, they have a very strong relationship
+whenever they're plotted together. Oftentimes whenever we look at data,
+this relationship appears whenever we see two things may not appear to have
+a relationship but plotted together, we get a lot more information about
+how the two vary together and this is why we would always want
+to look at joint distributions. Thank you.
